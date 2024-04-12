@@ -31,5 +31,100 @@ namespace GithubActionsLab
         }
 
         // Implement 3 tests per operation, following a similar pattern as above
+        [Test]
+        public void Sub_Valid()
+        {
+            Assert.AreEqual(1, Program.Subtract("5", "4"));
+            Assert.AreEqual(3, Program.Subtract("10", "7"));
+            Assert.AreEqual(12, Program.Subtract("24", "12"));
+        }
+
+        [Test]
+        public void Sub_Invalid()
+        {
+            Assert.Throws<FormatException>(() => Program.Subtract("1", "a"));
+            Assert.Throws<FormatException>(() => Program.Subtract("a", "1"));
+            Assert.Throws<FormatException>(() => Program.Subtract("a", "a"));
+        }
+
+        [Test]
+        public void Sub_Null()
+        {
+            Assert.Throws<ArgumentNullException>(() => Program.Suvtract("1", null));
+            Assert.Throws<ArgumentNullException>(() => Program.Subtract(null, "1"));
+            Assert.Throws<ArgumentNullException>(() => Program.Subtract(null, null));
+        }
+
+        [Test]
+        public void Mul_Valid()
+        {
+            Assert.AreEqual(20, Program.Multiply("5", "4"));
+            Assert.AreEqual(70, Program.Multiply("10", "7"));
+            Assert.AreEqual(288, Program.Multiply("24", "12"));
+        }
+
+        [Test]
+        public void Mul_Invalid()
+        {
+            Assert.Throws<FormatException>(() => Program.Multiply("1", "a"));
+            Assert.Throws<FormatException>(() => Program.Multiply("a", "1"));
+            Assert.Throws<FormatException>(() => Program.Multiply("a", "a"));
+        }
+
+        [Test]
+        public void Mul_Null()
+        {
+            Assert.Throws<ArgumentNullException>(() => Program.Multiply("1", null));
+            Assert.Throws<ArgumentNullException>(() => Program.Multiply(null, "1"));
+            Assert.Throws<ArgumentNullException>(() => Program.Multiply(null, null));
+        }
+        
+        [Test]
+        public void Div_Valid()
+        {
+            Assert.AreEqual(5, Program.Divide("20", "4"));
+            Assert.AreEqual(10, Program.Divide("70", "7"));
+            Assert.AreEqual(24, Program.Divide("288", "12"));
+        }
+
+        [Test]
+        public void Div_Invalid()
+        {
+            Assert.Throws<FormatException>(() => Program.Divide("1", "a"));
+            Assert.Throws<FormatException>(() => Program.Divide("a", "1"));
+            Assert.Throws<FormatException>(() => Program.Divide("a", "a"));
+        }
+
+        [Test]
+        public void Div_Null()
+        {
+            Assert.Throws<ArgumentNullException>(() => Program.Divide("1", null));
+            Assert.Throws<ArgumentNullException>(() => Program.Divide(null, "1"));
+            Assert.Throws<ArgumentNullException>(() => Program.Divide(null, null));
+        }
+
+         [Test]
+        public void Pow_Valid()
+        {
+            Assert.AreEqual(8, Program.Power("2", "3"));
+            Assert.AreEqual(16, Program.Power("4", "2"));
+            Assert.AreEqual(1296, Program.Power("6", "4"));
+        }
+
+        [Test]
+        public void Pow_Invalid()
+        {
+            Assert.Throws<FormatException>(() => Program.Power("1", "a"));
+            Assert.Throws<FormatException>(() => Program.Power("a", "1"));
+            Assert.Throws<FormatException>(() => Program.Power("a", "a"));
+        }
+
+        [Test]
+        public void Pow_Null()
+        {
+            Assert.Throws<ArgumentNullException>(() => Program.Power("1", null));
+            Assert.Throws<ArgumentNullException>(() => Program.Power(null, "1"));
+            Assert.Throws<ArgumentNullException>(() => Program.Power(null, null));
+        }
     }
 }
